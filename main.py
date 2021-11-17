@@ -10,7 +10,7 @@ _arcade = arcade
 _render = Render(_arcade)
 
 # Open the window
-arcade.open_window(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT)
+arcade.open_window(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT,constants.WINDOW_TITLE)
 
 # Set the background color
 arcade.set_background_color(arcade.color.WHITE)
