@@ -1,20 +1,25 @@
 from game import constants
-from game.map import Map
 
 class Render:
 
     def __init__(self, screen):
 
         self._arcade = screen
-        self._map = Map(self._arcade)
+        self.all_sprites = []
+        self.height = 10
+        self._setup()
 
     def _start_render(self):
         # Clear the screen and start drawing
         self._arcade.start_render()
         
-        self._map._draw()
-        
-        self._arcade.draw_circle_filled( constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2, constants.RADIUS, self._arcade.color.YELLOW)
 
         # Finish drawing
         self._arcade.finish_render()
+    
+    def _setup(self):
+
+        self.player = self._arcade.Sprite("Images/Luke.png")
+        self.player.center_y = self.height / 2
+        self.player.left = 10
+        self.all_sprites.append(self.player)
