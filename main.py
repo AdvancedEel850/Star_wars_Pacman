@@ -1,17 +1,31 @@
 # Imports
 import arcade
+from pyglet import window
 from game import constants
-from game.render import Render
 
-_arcade = arcade
-_render = Render(_arcade)
+class My_Game(arcade.Window):
 
-# Open the window
-arcade.open_window(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT,constants.WINDOW_TITLE)
+    def __init__(self, width, height, title):
 
-# Set the background color
-arcade.set_background_color(arcade.color.WHITE)
+            super().__init__(width,height,title)
 
-# Display everything
-_render._start_render()
-arcade.run()
+            self._width = width
+            self._height = height
+            self._title = title
+
+    def _setup(self):
+        pass
+
+    def on_draw(self):
+        pass
+
+    def on_update(self, delta_time: float):
+        pass
+
+def main():
+    window = My_Game(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, constants.WINDOW_TITLE)
+    window._setup
+    arcade.run()
+
+if __name__ == '__main__':
+    main()
