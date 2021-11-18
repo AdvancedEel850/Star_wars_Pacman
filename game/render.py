@@ -8,6 +8,7 @@ class Render:
         self.all_sprites = self._arcade.SpriteList()
         self.map = self._arcade.SpriteList()
         self.ghost = self._arcade.SpriteList()
+        self._x_list = [350,321,290,259]
         self.height = 10
         self._setup()
 
@@ -37,8 +38,10 @@ class Render:
         self.background.center_y = constants.SCREEN_HEIGHT/2
         self.background.center_x = constants.SCREEN_WIDTH/2
         self.map.append(self.background)
-
-        self.atat = self._arcade.Sprite("Images/ATAT.png")
-        self.atat.center_y = 410
-        self.atat.center_x = 340
-        self.ghost.append(self.atat)
+        
+        if len(self.ghost) < 4:
+            for i in range(len(self.ghost), 4):
+                self.atat = self._arcade.Sprite("Images/ATAT.png")
+                self.atat.center_y = 410
+                self.atat.center_x = self._x_list[i]
+                self.ghost.append(self.atat)
