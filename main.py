@@ -1,6 +1,3 @@
-# Basic arcade program
-# Displays a white window with a blue circle in the middle
-
 # Imports
 import arcade
 from game import constants
