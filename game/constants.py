@@ -2,5 +2,4 @@ import os
 
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 800
-RADIUS = 25
-WINDOW_TITLE = "welcome"
+WINDOW_TITLE = "Pac-Man"
