@@ -47,7 +47,7 @@ class My_Game(arcade.Window):
         # Clear the screen and start drawing
         arcade.start_render()
  
-        self.walls.draw()
+        self.map.draw()
         self.all_sprites.draw()
         self.ghost.draw()
 
