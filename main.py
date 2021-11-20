@@ -3,6 +3,7 @@ import arcade
 from pyglet import window
 from game import constants
 from game.player import Player
+from game.walls import wall_creation
 
 class My_Game(arcade.Window):
 
@@ -10,6 +11,7 @@ class My_Game(arcade.Window):
 
         super().__init__(width,height,title)
 
+        self._wall = wall_creation(arcade)
         self._width = width
         self._height = height
         self._title = title
@@ -32,10 +34,7 @@ class My_Game(arcade.Window):
         self.background.center_x = constants.SCREEN_WIDTH/2
         self.map.append(self.background)
         
-        self.wall = arcade.Sprite("Images/walls.png")
-        self.wall.center_y = constants.SCREEN_HEIGHT/2
-        self.wall.center_x = constants.SCREEN_WIDTH/2
-        self.walls.append(self.wall)
+        self.walls = self._wall.create_walls()
 
         if len(self.ghost) < 4:
             for i in range(len(self.ghost), 4):
@@ -48,7 +47,7 @@ class My_Game(arcade.Window):
         # Clear the screen and start drawing
         arcade.start_render()
  
-        self.map.draw()
+        self.walls.draw()
         self.all_sprites.draw()
         self.ghost.draw()
 
@@ -58,7 +57,7 @@ class My_Game(arcade.Window):
         
         self.all_sprites.update()
 
-        if self.player.collides_with_sprite(self.wall):
+        if self.player.collides_with_list(self.walls):
             self.player.velocity = (0,0)
 
     def on_key_press(self, symbol, modifiers):
