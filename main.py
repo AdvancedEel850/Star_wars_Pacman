@@ -2,6 +2,7 @@
 import arcade
 from pyglet import window
 from game import constants
+from game.atat import ATAT
 from game.player import Player
 from game.walls import wall_creation
 from game.handle_collisions import Handle_Collision
@@ -17,7 +18,8 @@ class My_Game(arcade.Window):
         self._width = width
         self._height = height
         self._title = title
-        self.handle_collisions = Handle_Collision
+        self.handle_collisions = Handle_Collision()
+        self.atat = ATAT
         self._x_list = [350, 319, 288, 257]
         self.all_sprites = arcade.SpriteList()
         self.map = arcade.SpriteList()
@@ -41,16 +43,11 @@ class My_Game(arcade.Window):
         self.walls = self._wall.create_walls()
 
         self.mid = arcade.Sprite("Images/mid.png")
-        self.mid.left = 227
-        self.mid.down = 379
+        self.mid.left = 220
+        self.mid.bottom = 355
         self.middle.append(self.mid)
 
-        if len(self.ghost) < 4:
-            for i in range(len(self.ghost), 4):
-                self.atat = arcade.Sprite("Images/ATAT.png")
-                self.atat.center_y = 410
-                self.atat.center_x = self._x_list[i]
-                self.ghost.append(self.atat)
+        self.atat._setup()
 
     def on_draw(self):
         # Clear the screen and start drawing
