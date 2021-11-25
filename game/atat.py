@@ -3,8 +3,9 @@ import arcade
 class ATAT():
     
     def __init__(self) -> None:
-        self.ghost = arcade.SpriteList()
         
+        self.ghost = arcade.SpriteList()
+        self._x_list = [350, 319, 288, 257]
 
     def _start_atat(self):
         pass

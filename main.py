@@ -20,7 +20,6 @@ class My_Game(arcade.Window):
         self._title = title
         self.handle_collisions = Handle_Collision()
         self.atat = ATAT
-        self._x_list = [350, 319, 288, 257]
         self.all_sprites = arcade.SpriteList()
         self.map = arcade.SpriteList()
         self.ghost = arcade.SpriteList()
