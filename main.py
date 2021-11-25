@@ -4,6 +4,8 @@ from pyglet import window
 from game import constants
 from game.player import Player
 from game.walls import wall_creation
+from game.handle_collisions import Handle_Collision
+from time import sleep
 
 class My_Game(arcade.Window):
 
@@ -15,11 +17,13 @@ class My_Game(arcade.Window):
         self._width = width
         self._height = height
         self._title = title
+        self.handle_collisions = Handle_Collision
         self._x_list = [350, 319, 288, 257]
         self.all_sprites = arcade.SpriteList()
         self.map = arcade.SpriteList()
         self.ghost = arcade.SpriteList()
         self.walls = arcade.SpriteList()
+        self.middle = arcade.SpriteList()
         arcade.set_background_color(arcade.color.WHITE)
 
     def _setup(self):
@@ -35,6 +39,11 @@ class My_Game(arcade.Window):
         self.map.append(self.background)
         
         self.walls = self._wall.create_walls()
+
+        self.mid = arcade.Sprite("Images/mid.png")
+        self.mid.left = 227
+        self.mid.down = 379
+        self.middle.append(self.mid)
 
         if len(self.ghost) < 4:
             for i in range(len(self.ghost), 4):
@@ -57,8 +66,7 @@ class My_Game(arcade.Window):
         
         self.all_sprites.update()
 
-        if self.player.collides_with_list(self.walls):
-            self.player.velocity = (0,0)
+        self.handle_collisions._collide(Handle_Collision,self.player, self.walls, self.middle)
 
     def on_key_press(self, symbol, modifiers):
         """Handle user keyboard input
