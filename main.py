@@ -47,7 +47,7 @@ class My_Game(arcade.Window):
         self.mid.bottom = 355
         self.middle.append(self.mid)
 
-        self.atat._setup(self.ghost)
+        self.ghost = self.atat.setup(self.ghost)
 
     def on_draw(self):
         # Clear the screen and start drawing

@@ -2,7 +2,7 @@ import arcade
 
 class ATAT():
     
-    def __init__(self):
+    def __init__(self) -> None:
         self.ghost = arcade.SpriteList()
         
 
@@ -15,7 +15,7 @@ class ATAT():
     def _ai(self):
         pass
 
-    def _setup(self, ghost):
+    def setup(self, ghost):
         
         self.ghost = ghost
 
@@ -25,3 +25,5 @@ class ATAT():
                 self.atat.center_y = 410
                 self.atat.center_x = self._x_list[i]
                 self.ghost.append(self.atat)
+
+        return self.ghost
