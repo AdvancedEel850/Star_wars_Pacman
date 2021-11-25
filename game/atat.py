@@ -6,13 +6,13 @@ class ATAT():
         self.ghost = arcade.SpriteList()
         
 
-    def _start_atat():
+    def _start_atat(self):
         pass
 
-    def _on_update():
+    def _on_update(self):
         pass
 
-    def _ai():
+    def _ai(self):
         pass
 
     def _setup(self, ghost):

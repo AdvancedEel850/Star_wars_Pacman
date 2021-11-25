@@ -47,7 +47,7 @@ class My_Game(arcade.Window):
         self.mid.bottom = 355
         self.middle.append(self.mid)
 
-        self.atat._setup()
+        self.atat._setup(self.ghost)
 
     def on_draw(self):
         # Clear the screen and start drawing
@@ -63,7 +63,7 @@ class My_Game(arcade.Window):
         
         self.all_sprites.update()
 
-        self.handle_collisions._collide(Handle_Collision,self.player, self.walls, self.middle)
+        self.handle_collisions._collide(self.player, self.walls, self.middle)
 
     def on_key_press(self, symbol, modifiers):
         """Handle user keyboard input
