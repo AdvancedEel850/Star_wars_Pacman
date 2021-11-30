@@ -3,6 +3,7 @@ import arcade
 from pyglet import window
 from game import constants
 from game.atat import ATAT
+from game.ai import Aritficial
 from game.player import Player
 from game.walls import wall_creation
 from game.handle_collisions import Handle_Collision
@@ -19,12 +20,13 @@ class My_Game(arcade.Window):
         self._height = height
         self._title = title
         self.handle_collisions = Handle_Collision()
-        self.atat = ATAT
         self.all_sprites = arcade.SpriteList()
         self.map = arcade.SpriteList()
         self.ghost = arcade.SpriteList()
         self.walls = arcade.SpriteList()
         self.middle = arcade.SpriteList()
+        self._atat = ATAT()
+        self._ai = Aritficial()
         arcade.set_background_color(arcade.color.WHITE)
 
     def _setup(self):
@@ -46,7 +48,7 @@ class My_Game(arcade.Window):
         self.mid.bottom = 355
         self.middle.append(self.mid)
 
-        self.ghost = self.atat.setup(self.ghost)
+        self.ghost = self._atat.setup(self.ghost)
 
     def on_draw(self):
         # Clear the screen and start drawing
@@ -61,8 +63,10 @@ class My_Game(arcade.Window):
     def on_update(self, delta_time: float):
         
         self.all_sprites.update()
+        self._ai._ai(self.walls, self.ghost)
 
         self.handle_collisions._collide(self.player, self.walls, self.middle)
+        self._ai.check_collision()
 
     def on_key_press(self, symbol, modifiers):
         """Handle user keyboard input
@@ -75,25 +79,31 @@ class My_Game(arcade.Window):
             symbol {int} -- Which key was pressed
             modifiers {int} -- Which modifiers were pressed"""
 
+
         if symbol == arcade.key.Q:
             # Quit immediately
             arcade.close_window()
 
         if symbol == arcade.key.P:
             self.paused = not self.paused
-
+            self._ai._ai(self.walls, self.ghost)
+            
         if symbol == arcade.key.W or symbol == arcade.key.UP:
             self.player.velocity = (0,1)
-
+            self._ai._ai(self.walls, self.ghost)
+            
         if symbol == arcade.key.S or symbol == arcade.key.DOWN:
             self.player.velocity = (0,-1)
-
+            self._ai._ai(self.walls, self.ghost)
+            
         if symbol == arcade.key.A or symbol == arcade.key.LEFT:
             self.player.velocity = (-1, 0)
-
+            self._ai._ai(self.walls, self.ghost)
+            
         if symbol == arcade.key.D or symbol == arcade.key.RIGHT:
             self.player.velocity = (1,0)
-    
+            self._ai._ai(self.walls, self.ghost)
+            
 
 def main():
     window = My_Game(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, constants.WINDOW_TITLE)

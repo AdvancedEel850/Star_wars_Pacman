@@ -3,7 +3,7 @@ import arcade
 class ATAT():
     
     def __init__(self) -> None:
-        
+
         self.ghost = arcade.SpriteList()
         self._x_list = [350, 319, 288, 257]
 
@@ -11,9 +11,12 @@ class ATAT():
         pass
 
     def _on_update(self):
+        self._ai()
+
+    def _ai(self, walls, ghost):
         pass
 
-    def _ai(self):
+    def check_collision(self):
         pass
 
     def setup(self, ghost):
@@ -25,6 +28,7 @@ class ATAT():
                 self.atat = arcade.Sprite("Images/ATAT.png")
                 self.atat.center_y = 410
                 self.atat.center_x = self._x_list[i]
+                self.atat.velocity =(0,0)
                 self.ghost.append(self.atat)
 
         return self.ghost
