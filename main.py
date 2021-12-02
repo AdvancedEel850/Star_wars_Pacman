@@ -4,6 +4,7 @@ from pyglet import window
 from game import constants
 from game.atat import ATAT
 from game.ai import Aritficial
+from game.lives import Lives
 from game.player import Player
 from game.walls import wall_creation
 from game.handle_collisions import Handle_Collision
@@ -26,8 +27,10 @@ class My_Game(arcade.Window):
         self.walls = arcade.SpriteList()
         self.middle = arcade.SpriteList()
         self.dots = arcade.SpriteList()
+        self.lives = arcade.SpriteList()
         self._atat = ATAT()
         self._ai = Aritficial()
+        self._lives = Lives()
         arcade.set_background_color(arcade.color.WHITE)
 
     def _setup(self):
@@ -56,6 +59,8 @@ class My_Game(arcade.Window):
         self.dot.center_y = 190
         self.dots.append(self.dot)
 
+        self.lives = self._lives._setup()
+
 
     def on_draw(self):
         # Clear the screen and start drawing
@@ -65,6 +70,7 @@ class My_Game(arcade.Window):
         self.dots.draw()
         self.all_sprites.draw()
         self.ghost.draw()
+        self.lives.draw()
 
 
     def on_update(self, delta_time: float):
