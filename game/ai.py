@@ -27,11 +27,7 @@ class Aritficial(ATAT):
                     self.atat.velocity = (0,0)
                 elif self.atat.velocity == (0,-1):
                     self.atat.velocity = (0,0)
-                elif self.ghost[i].velocity == (1,0):
-                    self.ghost[i].velocity = (-2,0)
-                    sleep(.5)
-                    self.ghost[i].velocity = (0,0)
-                elif self.ghost[i].velocity == (-1,0):
-                    self.ghost[i].velocity = (2,0)
-                    sleep(.5)
-                    self.ghost[i].velocity = (0,0)
+                elif self.atat.velocity == (1,0):
+                    self.atat.velocity = (-1,0)
+                elif self.atat.velocity == (-1,0):
+                    self.atat.velocity = (1,0)

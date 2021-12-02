@@ -28,7 +28,7 @@ class ATAT():
                 self.atat = arcade.Sprite("Images/ATAT.png")
                 self.atat.center_y = 410
                 self.atat.center_x = self._x_list[i]
-                self.atat.velocity =(1,0)
+                self.atat.velocity =(0,0)
                 self.ghost.append(self.atat)
 
         return self.ghost

@@ -63,6 +63,7 @@ class My_Game(arcade.Window):
     def on_update(self, delta_time: float):
         
         self.all_sprites.update()
+        self.ghost.update()
         self._ai._ai(self.walls, self.ghost)
 
         self.handle_collisions._collide(self.player, self.walls, self.middle)

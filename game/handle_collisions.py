@@ -13,18 +13,10 @@ class Handle_Collision:
         
         if self.player.collides_with_list(self.walls) or self.player.collides_with_list(self.middle):
             if self.player.velocity == (0,1):
-                self.player.velocity = (0,-2)
-                sleep(.5)
                 self.player.velocity = (0,0)
             elif self.player.velocity == (0,-1):
-                self.player.velocity = (0,2)
-                sleep(.5)
                 self.player.velocity = (0,0)
             elif self.player.velocity == (1,0):
-                self.player.velocity = (-2,0)
-                sleep(.5)
                 self.player.velocity = (0,0)
             elif self.player.velocity == (-1,0):
-                self.player.velocity = (2,0)
-                sleep(.5)
                 self.player.velocity = (0,0)
