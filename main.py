@@ -80,8 +80,8 @@ class My_Game(arcade.Window):
             symbol {int} -- Which key was pressed
             modifiers {int} -- Which modifiers were pressed"""
 
-
-        if symbol == arcade.key.Q:
+        
+        if symbol == arcade.key.ESCAPE:
             # Quit immediately
             arcade.close_window()
 
