@@ -80,7 +80,7 @@ class My_Game(arcade.Window):
         self.dots.update()
         self._ai._ai(self.walls, self.ghost)
 
-        self.handle_collisions._collide(self.player, self.walls, self.middle, self.dots, self.ghost)
+        self.handle_collisions._collide(self.player, self.walls, self.middle, self.dots, self.ghost, self.lives)
         self._ai.check_collision()
 
     def on_key_press(self, symbol, modifiers):
