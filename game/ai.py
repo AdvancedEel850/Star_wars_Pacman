@@ -17,17 +17,55 @@ class Aritficial(ATAT):
             self.atat = self.ghost[i]
             if self.atat.velocity == (0,0):
                 self.atat.velocity = (random.randint(-1,1), 0)
-    
+            
+            n = random.randint(1,1000)
+            if n > 850 and self.atat.center_x == 300:
+                self.atat.velocity = (0,1)
+
     def check_collision(self):
         
         for i in range(0,len(self.ghost)):
             self.atat = self.ghost[i]
             if self.atat.collides_with_list(self.walls):
-                if self.atat.velocity == (0,1):
-                    self.atat.velocity = (0,0)
-                elif self.atat.velocity == (0,-1):
-                    self.atat.velocity = (0,0)
-                elif self.atat.velocity == (1,0):
-                    self.atat.velocity = (-1,0)
-                elif self.atat.velocity == (-1,0):
-                    self.atat.velocity = (1,0)
+                if self.atat.center_y == 410:    
+                    if self.atat.velocity == (0,1):
+                        self.atat.velocity = (0,0)
+                    elif self.atat.velocity == (0,-1):
+                        self.atat.velocity = (0,0)
+                    elif self.atat.velocity == (1,0):
+                        self.atat.velocity = (-1,0)
+                    elif self.atat.velocity == (-1,0):
+                        self.atat.velocity = (1,0)
+                else:
+                    if self.atat.velocity == (0,1):
+                        self.atat.center_y -= 5
+                        self.atat.velocity = (random.randint(-1,1),random.randint(-1,1))
+                        for i in range(100):
+                            if self.atat.velocity == (0,0) or self.atat.velocity == (1,1) or self.atat.velocity == (0,1) or self.atat.velocity == (1,-1) or self.atat.velocity == (-1,1) or self.atat.velocity == (-1,-1):
+                                self.atat.velocity = (random.randint(-1,1),random.randint(-1,1))
+                            else:
+                                break
+                    elif self.atat.velocity == (0,-1):
+                        self.atat.center_y += 5
+                        self.atat.velocity = (random.randint(-1,1),random.randint(-1,1))
+                        for i in range(100):
+                            if self.atat.velocity == (0,0) or self.atat.velocity == (1,1) or self.atat.velocity == (0,-1) or self.atat.velocity == (1,-1) or self.atat.velocity == (-1,1) or self.atat.velocity == (-1,-1):
+                                self.atat.velocity = (random.randint(-1,1),random.randint(-1,1))
+                            else:
+                                break
+                    elif self.atat.velocity == (1,0):
+                        self.atat.center_x -= 5
+                        self.atat.velocity = (random.randint(-1,1),random.randint(-1,1))
+                        for i in range(100):
+                            if self.atat.velocity == (0,0) or self.atat.velocity == (1,1) or self.atat.velocity == (1,0) or self.atat.velocity == (1,-1) or self.atat.velocity == (-1,1) or self.atat.velocity == (-1,-1):
+                                self.atat.velocity = (random.randint(-1,1),random.randint(-1,1))
+                            else:
+                                break
+                    elif self.atat.velocity == (-1,0):
+                        self.atat.center_x += 5
+                        self.atat.velocity = (random.randint(-1,1),random.randint(-1,1))
+                        for i in range(100):
+                            if self.atat.velocity == (0,0) or self.atat.velocity == (1,1) or self.atat.velocity == (-1,0) or self.atat.velocity == (1,-1) or self.atat.velocity == (-1,1) or self.atat.velocity == (-1,-1):
+                                self.atat.velocity = (random.randint(-1,1),random.randint(-1,1))
+                            else:
+                                break

@@ -25,6 +25,7 @@ class My_Game(arcade.Window):
         self.ghost = arcade.SpriteList()
         self.walls = arcade.SpriteList()
         self.middle = arcade.SpriteList()
+        self.dots = arcade.SpriteList()
         self._atat = ATAT()
         self._ai = Aritficial()
         arcade.set_background_color(arcade.color.WHITE)
@@ -50,23 +51,30 @@ class My_Game(arcade.Window):
 
         self.ghost = self._atat.setup(self.ghost)
 
+        self.dot = arcade.Sprite("Images/blaster.png")
+        self.dot.center_x = 430
+        self.dot.center_y = 190
+        self.dots.append(self.dot)
+
+
     def on_draw(self):
         # Clear the screen and start drawing
         arcade.start_render()
  
         self.map.draw()
+        self.dots.draw()
         self.all_sprites.draw()
         self.ghost.draw()
 
 
-      
     def on_update(self, delta_time: float):
         
         self.all_sprites.update()
         self.ghost.update()
+        self.dots.update()
         self._ai._ai(self.walls, self.ghost)
 
-        self.handle_collisions._collide(self.player, self.walls, self.middle)
+        self.handle_collisions._collide(self.player, self.walls, self.middle, self.dots)
         self._ai.check_collision()
 
     def on_key_press(self, symbol, modifiers):
