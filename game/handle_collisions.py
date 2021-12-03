@@ -1,4 +1,6 @@
 from time import sleep
+
+import arcade
 from game.atat import ATAT
 
 class Handle_Collision:
@@ -39,7 +41,11 @@ class Handle_Collision:
             self.player.remove_from_sprite_lists()
             self._atat._reset(self.ghost)
             sleep(1)
-            self.lives[-1].remove_from_sprite_lists()
+            if len(self.lives) == 0:
+                arcade.finish_render()
+            elif len(self.lives) != 0:
+                self.lives[-1].remove_from_sprite_lists()
+
             
                 
 

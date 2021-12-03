@@ -75,7 +75,13 @@ class My_Game(arcade.Window):
 
     def on_update(self, delta_time: float):
         
+        if len(self.all_sprites) == 0 and len(self.lives) >= 0:
+            self.player = Player("Images/Luke.png")
+            self.player.center_y = 185
+            self.player.center_x = 300
+            self.all_sprites.append(self.player)
         self.all_sprites.update()
+   
         self.ghost.update()
         self.dots.update()
         self._ai._ai(self.walls, self.ghost)
