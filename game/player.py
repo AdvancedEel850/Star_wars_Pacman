@@ -1,3 +1,8 @@
+"""This class just contols the player, to check if they go off of the screen, and put them back on the other side. 
+This class is used for the creation of sprites"""
+
+
+
 import arcade
 from game import constants
 

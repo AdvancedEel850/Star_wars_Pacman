@@ -1,3 +1,7 @@
+"""This class is the base class for the ghost or atat's. this is the class that sets them up, and uses polymorphism with the ai class.
+This also uses encapsulation for the x list"""
+
+
 import arcade
 
 from game.ghost import Ghost
@@ -30,7 +34,7 @@ class ATAT():
                 self.atat = Ghost("Images/ATAT.png")
                 self.atat.center_y = 410
                 self.atat.center_x = self._x_list[i]
-                self.atat.velocity =(0,0)
+                self.atat.velocity = (0,0)
                 self.ghost.append(self.atat)
 
         return self.ghost

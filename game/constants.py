@@ -1,3 +1,5 @@
+"""This is just constants"""
+
 import os
 
 SCREEN_WIDTH = 600

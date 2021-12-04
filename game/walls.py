@@ -1,3 +1,6 @@
+"""This class is the creation of the walls/collision walls. It uses encapsulation for both the down and left
+list as they are only used here, and don't need to be changed"""
+
 
 import arcade
 

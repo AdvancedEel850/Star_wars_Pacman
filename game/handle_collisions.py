@@ -1,3 +1,7 @@
+"""This class controls player collision with the walls. It uses inheritance to get all of the collision boundries that the player
+might run into."""
+
+
 from time import sleep
 
 import arcade
