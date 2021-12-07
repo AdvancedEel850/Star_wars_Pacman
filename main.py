@@ -41,7 +41,7 @@ class My_Game(arcade.Window):
 
         self.player = Player("Images/Luke.png")
         self.player.center_y = 185
-        self.player.center_x = 300
+        self.player.center_x = 305
         self.all_sprites.append(self.player)
 
         self.background = arcade.Sprite("Images/map.png")
