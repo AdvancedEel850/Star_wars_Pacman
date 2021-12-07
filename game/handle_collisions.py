@@ -37,9 +37,11 @@ class Handle_Collision:
 
         count = len(self.dots)
         for i in range(0, count):
-            dot = self.dots[i]
-            if self.player.collides_with_list(self.dots):
-                dot.remove_from_sprite_lists()
+            self.dot = self.dots[i]
+            if self.player.collides_with_sprite(self.dot):
+                self.dot.remove_from_sprite_lists()
+                self.dots.update()
+                break
 
         if self.player.collides_with_list(self.ghost):
             self.player.remove_from_sprite_lists()

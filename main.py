@@ -6,6 +6,7 @@ from pyglet import window
 from game import constants
 from game.atat import ATAT
 from game.ai import Aritficial
+from game.dots import Dots
 from game.lives import Lives
 from game.player import Player
 from game.walls import wall_creation
@@ -33,6 +34,7 @@ class My_Game(arcade.Window):
         self._atat = ATAT()
         self._ai = Aritficial()
         self._lives = Lives()
+        self._dots = Dots()
         arcade.set_background_color(arcade.color.WHITE)
 
     def _setup(self):
@@ -56,10 +58,7 @@ class My_Game(arcade.Window):
 
         self.ghost = self._atat.setup(self.ghost)
 
-        self.dot = arcade.Sprite("Images/blaster.png")
-        self.dot.center_x = 430
-        self.dot.center_y = 190
-        self.dots.append(self.dot)
+        self.dots = self._dots._setup()
 
         self.lives = self._lives._setup()
 
