@@ -90,6 +90,11 @@ class My_Game(arcade.Window):
         self.handle_collisions._collide(self.player, self.walls, self.middle, self.dots, self.ghost, self.lives)
         self._ai.check_collision()
 
+        if len(self.dots) == 0:
+            arcade.finish_render()
+            sleep(2)
+            arcade.close_window()
+
     def on_key_press(self, symbol, modifiers):
         """Handle user keyboard input
         Q: Quit the game
