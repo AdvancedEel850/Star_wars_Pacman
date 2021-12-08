@@ -12,10 +12,11 @@ class Aritficial(ATAT):
     def __init__(self) -> None:
         super().__init__()
 
-    def _ai(self, walls, ghost):
+    def _ai(self, walls, ghost, player):
         
         self.walls = walls
         self.ghost = ghost
+        self.player = player
 
         for i in range(0,len(self.ghost)):
             self.atat = self.ghost[i]
@@ -25,6 +26,17 @@ class Aritficial(ATAT):
             n = random.randint(1,1000)
             if n > 850 and self.atat.center_x == 300:
                 self.atat.velocity = (0,1)
+        
+        for x in range(0, len(self.ghost)):
+            self.atat = self.ghost[x]
+            if self.atat.center_x == self.player.center_x and self.atat.center_y > self.player.center_y:
+                self.atat.velocity = (0,-1)
+            elif self.atat.center_x == self.player.center_x and self.atat.center_y < self.player.center_y:
+                self.atat.velocity = (0,1)
+            elif self.atat.center_y == self.player.center_y and self.atat.center_x > self.player.center_x:
+                self.atat.velocity = (1,0)
+            elif self.atat.center_y == self.player.center_y and self.atat.center_x < self.player.center_x:
+                self.atat.velocity = (-1,0)
 
     def check_collision(self):
         

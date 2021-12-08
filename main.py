@@ -85,7 +85,7 @@ class My_Game(arcade.Window):
    
         self.ghost.update()
         self.dots.update()
-        self._ai._ai(self.walls, self.ghost)
+        self._ai._ai(self.walls, self.ghost, self.player)
 
         self.handle_collisions._collide(self.player, self.walls, self.middle, self.dots, self.ghost, self.lives)
         self._ai.check_collision()
@@ -113,23 +113,23 @@ class My_Game(arcade.Window):
 
         if symbol == arcade.key.P:
             self.paused = not self.paused
-            self._ai._ai(self.walls, self.ghost)
+            self._ai._ai(self.walls, self.ghost, self.player)
             
         if symbol == arcade.key.W or symbol == arcade.key.UP:
             self.player.velocity = (0,1)
-            self._ai._ai(self.walls, self.ghost)
+            self._ai._ai(self.walls, self.ghost, self.player)
             
         if symbol == arcade.key.S or symbol == arcade.key.DOWN:
             self.player.velocity = (0,-1)
-            self._ai._ai(self.walls, self.ghost)
+            self._ai._ai(self.walls, self.ghost, self.player)
             
         if symbol == arcade.key.A or symbol == arcade.key.LEFT:
             self.player.velocity = (-1, 0)
-            self._ai._ai(self.walls, self.ghost)
+            self._ai._ai(self.walls, self.ghost, self.player)
             
         if symbol == arcade.key.D or symbol == arcade.key.RIGHT:
             self.player.velocity = (1,0)
-            self._ai._ai(self.walls, self.ghost)
+            self._ai._ai(self.walls, self.ghost, self.player)
             
 
 def main():
