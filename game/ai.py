@@ -24,7 +24,7 @@ class Aritficial(ATAT):
                 self.atat.velocity = (random.randint(-1,1), 0)
             
             n = random.randint(1,1000)
-            if n > 850 and self.atat.center_x == 300:
+            if n > 850 and self.atat.center_x > 295 and self.atat.center_x < 305:
                 self.atat.velocity = (0,1)
         
         for x in range(0, len(self.ghost)):
