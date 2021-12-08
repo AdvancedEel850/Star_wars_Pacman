@@ -22,16 +22,16 @@ class Handle_Collision:
         self._atat = ATAT()
         
         if self.player.collides_with_list(self.walls) or self.player.collides_with_list(self.middle):
-            if self.player.velocity == (0,1):
+            if self.player.velocity == (0,2):
                 self.player.center_y -= 5
                 self.player.velocity = (0,0)
-            elif self.player.velocity == (0,-1):
+            elif self.player.velocity == (0,-2):
                 self.player.center_y += 5
                 self.player.velocity = (0,0)
-            elif self.player.velocity == (1,0):
+            elif self.player.velocity == (2,0):
                 self.player.center_x -=5
                 self.player.velocity = (0,0)
-            elif self.player.velocity == (-1,0):
+            elif self.player.velocity == (-2,0):
                 self.player.center_x +=5
                 self.player.velocity = (0,0)
 
