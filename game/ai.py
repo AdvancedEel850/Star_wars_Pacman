@@ -34,9 +34,9 @@ class Aritficial(ATAT):
             elif self.atat.center_x == self.player.center_x and self.atat.center_y < self.player.center_y:
                 self.atat.velocity = (0,1)
             elif self.atat.center_y == self.player.center_y and self.atat.center_x > self.player.center_x:
-                self.atat.velocity = (1,0)
-            elif self.atat.center_y == self.player.center_y and self.atat.center_x < self.player.center_x:
                 self.atat.velocity = (-1,0)
+            elif self.atat.center_y == self.player.center_y and self.atat.center_x < self.player.center_x:
+                self.atat.velocity = (1,0)
 
     def check_collision(self):
         
