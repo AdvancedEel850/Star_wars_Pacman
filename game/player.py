@@ -1,5 +1,5 @@
 """This class just contols the player, to check if they go off of the screen, and put them back on the other side. 
-This class is used for the creation of sprites"""
+This class is used for the creation of sprites and inherits from the arcade.Sprite class"""
 
 
 

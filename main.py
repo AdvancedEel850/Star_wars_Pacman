@@ -1,5 +1,5 @@
 """This filel contols the main loop of the game. In this file, It inherits from the acarde.Window class to allow the game to run.
-This file uses the principle of inheritance to create the sprites, and contol all of the sprite actions, using functions in the arcade.Window class."""
+This file uses the principle of Abstration to create the sprites, and contol all of the sprite actions, using functions in the arcade.Window class."""
 
 import arcade
 from pyglet import window
