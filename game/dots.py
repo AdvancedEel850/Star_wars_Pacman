@@ -1,3 +1,4 @@
+
 """This creates every pellet, or dot on the game board. This class uses encapsulation, 
 as the x and y list for this class are not used anywhere else in the program. Please ignore how long the
 list are, as there are many pellets."""

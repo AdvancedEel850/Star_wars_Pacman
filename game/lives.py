@@ -1,3 +1,4 @@
+
 """This file uses the principle of encapsulation with one of the variables. The x_list variable is private, 
 as this is the only file that uses that variable. Other files have the same, but this one is made for this class."""
 

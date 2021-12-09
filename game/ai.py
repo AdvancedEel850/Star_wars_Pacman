@@ -1,3 +1,4 @@
+
 """This file controls the main movement for the ghost. It will control the ghost movement to move around the walls This file uses inheritance
  and polymorphism to move the ghost using both the _ai and _check_collision. This class inherits from the ATAT class."""
 

@@ -1,3 +1,4 @@
+
 """This class is the base class for the ghost or atat's. this is the class that sets them up, and uses polymorphism with the ai class.
 This also uses encapsulation for the x list"""
 
