@@ -92,6 +92,12 @@ class My_Game(arcade.Window):
         self._ai.check_collision()
 
         if len(self.dots) == 0:
+            for n in range(0,len(self.ghost)):
+                self.ghost[n].remove_from_sprite_lists()
+                self.ghost.update()
+                sleep(1)
+            self.player.remove_from_sprite_lists()
+            self.all_sprites.update()
             arcade.finish_render()
             sleep(2)
             arcade.close_window()
